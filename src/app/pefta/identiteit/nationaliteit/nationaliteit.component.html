@@ -1,0 +1,19 @@
+<p>
+  nationaliteit works!
+</p>
+
+
+<div *ngIf="nationaliteitService.evaluatedNationaliteit$ | async as nationaliteit">
+
+  <label for="vraag-nationaliteit">Nationaliteit: </label>
+  <input #box
+     type="text"
+     id="vraag-nationaliteit"
+     [value]="nationaliteit.waarde || ''"
+     (change)="nationaliteitInput(box.value)"><br>
+
+      <span>{{nationaliteit.nietEerBlok.zichtbaar}}</span>
+     <div *ngIf="nationaliteit.nietEerBlok.zichtbaar">
+       <span>TODO specifieke zaken ivm niet eer inwoners</span>
+     </div>
+</div>
